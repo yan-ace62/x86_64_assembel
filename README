@@ -3,3 +3,5 @@
 ### do_syscall_64 内核空间实现系统调用
 Perf Profiler Reporting Excess Use of “do_syscall_64”
 [https://stackoverflow.com/questions/57439557/perf-profiler-reporting-excess-use-of-do-syscall-64]
+GNU Assembler Examples
+[https://cs.lmu.edu/~ray/notes/gasexamples/]
