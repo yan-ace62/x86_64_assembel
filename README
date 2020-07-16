@@ -5,3 +5,5 @@ Perf Profiler Reporting Excess Use of “do_syscall_64”
 [https://stackoverflow.com/questions/57439557/perf-profiler-reporting-excess-use-of-do-syscall-64]
 GNU Assembler Examples
 [https://cs.lmu.edu/~ray/notes/gasexamples/]
+GUN Assemble syntax
+[https://csit.kutztown.edu/~schwesin/spring20/csc526/references/GNU_Assembler.pdf]
