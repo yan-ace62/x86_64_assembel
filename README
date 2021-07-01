@@ -10,3 +10,6 @@ GUN Assemble syntax
 
 内核架构学习
 [https://richardweiyang-2.gitbook.io/kernel-exploring/]
+
+READ_ONCE()解释
+https://zhuanlan.zhihu.com/p/102753962
