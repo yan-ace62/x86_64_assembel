@@ -30,3 +30,67 @@ https://quant67.com/post/linux/access_once.html
 [Introduction · Linux Inside](https://0xax.gitbooks.io/linux-insides/content/Interrupts/linux-interrupts-1.html)
 
 [References in Rust](https://blog.thoughtram.io/references-in-rust/)
+
+
+<1>[13766.575913] 1:BUG: unable to handle kernel NULL pointer dereference at 0000000000000008                                       
+<1>[13766.575913] 1:IP: [<ffffffffa0236b57>] :system:DRV_CFD_brige_MAC_Hash_ADD+0x197/0x270                                         
+<4>[13766.575913] PGD 2e6d92067 PUD 3990a6067 PMD 0                                                                                 
+<0>[13766.575913] 1:Oops: 0002 [1] SMP                                                                                              
+<4>[13766.575913] CPU: 1                                                                                                            
+<4>[13766.575913] Modules linked in: system addon                                                                                   
+<4>[13766.575913] Pid: 853, comm: kmac/1 Tainted: P             (none) #1 (none)                                                    
+<4>[13766.575913] RIP: 0010:[<ffffffffa0236b57>]  [<ffffffffa0236b57>] :system:DRV_CFD_brige_MAC_Hash_ADD+0x197/0x270               
+<4>[13766.575913] RSP: 0018:ffff8102f3fcf6f0  EFLAGS: 00010286                                                                      
+<4>[13766.575913] RAX: ffff810455893400 RBX: ffff8102e1a24588 RCX: ffff810455893410                                                 
+<4>[13766.575913] RDX: ffff81045b433580 RSI: ffff81045b433590 RDI: ffff8102e1a24500                                                 
+<4>[13766.575913] RBP: ffff8102f3fcf750 R08: 2222222222222222 R09: ffff810454fc3e00                                                 
+<4>[13766.575913] R10: ffff8102e32b1e98 R11: ffff8102f3fcfcb0 R12: 000000000000003a                                                 
+<4>[13766.575913] R13: 0000000000000020 R14: 0000000000000029 R15: 0000000000000000                                                 
+<4>[13766.575913] FS:  0000000000000000(0000) GS:ffff810470008240(0000) knlGS:0000000000000000                                      
+<4>[13766.575913] CS:  0010 DS: 0018 ES: 0018 CR0: 000000008005003b                                                                 
+<4>[13766.575913] CR2: 0000000000000008 CR3: 000000045cdbb000 CR4: 00000000000006e0                                                 
+<4>[13766.575913] DR0: 0000000000000000 DR1: 0000000000000000 DR2: 0000000000000000                                                 
+<4>[13766.575913] DR3: 0000000000000000 DR6: 00000000fffe0ff0 DR7: 0000000000000400                                                 
+<4>[13766.575913] Process kmac/1 (pid: 853, veid=0, threadinfo ffff8102f3fc0000, task ffff8102f3ac9e80)                             
+<4>[13766.575913] Stack:  0000000000000001 ffff810454fc3e04 ffff8102f3fcf720 ffff81045b433580                                       
+<4>[13766.575913]  00000000fe9ea140 00000000409ea140 ffff8102f3fcf750 ffff810454fc3e00                                              
+<4>[13766.575913]  0000000000000001 ffff810454fc3e04 0000000000001000 0000000000000000                                              
+<4>[13766.575913] Call Trace:                                                                                                       
+<4>[13766.575913]  [<ffffffffa0236b57>] :system:DRV_CFD_brige_MAC_Hash_ADD+0x197/0x270                                              
+<4>[13766.575913]  [<ffffffffa0507dba>] :system:drv_CFD_Handle_Brige_Mac+0x1ba/0x240                                                
+<4>[13766.575913]  [<ffffffffa05083ad>] :system:DRV_VXLAN_HandleRemoteMacChange+0x56d/0x12f0                                        
+<4>[13766.575913]  [<ffffffffa8613dc2>] :system:mac_RefreshOverlayDrv+0xa2/0x1d0                                                    
+<4>[13766.575913]  [<ffffffffa861a657>] :system:MAC_AddOverlayEntry+0x547/0xb50                                                     
+<4>[13766.575913]  [<ffffffffa861ca45>] :system:MAC_ENTRY_AddEntryExt+0x115/0x470                                                   
+<4>[13766.575913]  [<ffffffffa860da5c>] :system:MAC_ProcOverlayMac+0x18c/0x290                                                      
+<4>[13766.575913]  [<ffffffffa89e80ec>] :system:OVERLAYMAC_CTL_MacProc+0x7c/0x100                                                   
+<4>[13766.575913]  [<ffffffffa89e82af>] :system:overlaymac_ctl_ProcMac+0x13f/0x190                                                  
+<4>[13766.575913]  [<ffffffffa8648f27>] :system:OVERLAYMAC_ProcSyncMsg+0x77/0x90                                                    
+<4>[13766.575913]  [<ffffffffa8627a24>] :system:mac_IntfMsgProc+0x34/0x40                                                           
+<4>[13766.575913]  [<ffffffffa8630c36>] :system:mac_DispatchLipcMsg+0x186/0x210                                                     
+[1]more>                                                                                                                            
+<4>[13766.575913]  [<ffffffffa8630d81>] :system:mac_RecvMsgFromMix+0x51/0x80                                                        
+<4>[13766.575913]  [<ffffffffa84dea93>] :system:sync_MIX_ClientDataProc+0x2e3/0x5c0                                                 
+<4>[13766.575913]  [<ffffffffa84deec8>] :system:sync_MIX_ClientProc+0xb8/0x180                                                      
+<4>[13766.575913]  [<ffffffffa84dd201>] :system:sync_EpollProc+0x31/0x40                                                            
+<4>[13766.575913]  [<ffffffffa8626c2d>] :system:mac_Thread+0x9d/0x150                                                               
+<4>[13766.575913]  [<ffffffff80253707>] kthread+0x107/0x110                                                                         
+<4>[13766.575913]  [<ffffffff8020a278>] child_rip+0xa/0x12                                                                          
+<4>[13766.575913]                                                                                                                   
+<4>[13766.575913]                                                                                                                   
+<0>[13766.575913] 1:Code: f0 8b 75 cc 39 70 20 76 68 0f 1f 00 48 8d 72 10 48 85 c0 48 c7 42 18 00 00 00 00 48 c7 40 10 00 00 00 00 4
+8 89 4a 10 48 89 70 18 <48> 89 0c 25 08 00 00 00 0f 85 e1 fe ff ff 0f 1f 00 48 c7 42 10                                             
+<1>[13766.575913] 1:RIP  [<ffffffffa0236b57>] :system:DRV_CFD_brige_MAC_Hash_ADD+0x197/0x270                                        
+<4>[13766.575913]  RSP <ffff8102f3fcf6f0>                                                                                           
+<0>[13766.575913] 1:module name: system -- module load address: 0xffffffffa0037000                                                  
+<0>[13766.575913] 1:module name: addon -- module load address: 0xffffffffa0000000                                                   
+<4>[13766.575913] task_switch hooks:                                                                                                
+<4>[13766.575913] cpu0: DRV_OS_TaskSwitchHook+0x0/0xa0 [system]                                                                     
+<4>[13766.575913] cpu1: DRV_OS_TaskSwitchHook+0x0/0xa0 [system]                                                                     
+<4>[13766.575913] cpu2: DRV_OS_TaskSwitchHook+0x0/0xa0 [system]                                                                     
+<4>[13766.575913] cpu3: DRV_OS_TaskSwitchHook+0x0/0xa0 [system]                                                                     
+<4>[13766.575913] cpu4: DRV_OS_TaskSwitchHook+0x0/0xa0 [system]                                                                     
+<4>[13766.575913] cpu5: DRV_OS_TaskSwitchHook+0x0/0xa0 [system]                                                                     
+<4>[13766.575913] cpu6: DRV_OS_TaskSwitchHook+0x0/0xa0 [system]                                                                     
+<4>[13766.575913] cpu7: DRV_OS_TaskSwitchHook+0x0/0xa0 [system]                                                                     
+<4>[13766.575913]  [<ffffffffa0236b57>] :system:DRV_CFD_brige_MAC_Hash_ADD+0x197/0x270 
